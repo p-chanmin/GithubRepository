@@ -12,7 +12,22 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme()
-private val LightColorScheme = lightColorScheme()
+private val LightColorScheme = lightColorScheme(
+    primary = White,
+    onPrimary = Black,
+    background = White,
+    onBackground = Black,
+    surface = White,
+    onSurface = Black,
+    surfaceVariant = Gray3,
+    onSurfaceVariant = Gray1,
+    secondary = Gray2,
+    onSecondary = White,
+    tertiary = Blue,
+    onTertiary = White,
+    outline = Black,
+    outlineVariant = Gray3,
+)
 
 @Composable
 fun GithubRepositoryTheme(
@@ -34,6 +49,7 @@ fun GithubRepositoryTheme(
     }
 
     MaterialTheme(
+        colorScheme = colorScheme,
         content = content
     )
 }
