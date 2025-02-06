@@ -1,6 +1,7 @@
 package com.dev.githubrepository.core.model
 
 data class RepositoryInfo(
+    val id: Int = 0,
     val name: String = "",
     val language: String? = null,
     val stargazersCount: Int = 0,

@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RepositoryResponse(
+    @SerialName("id") val id: Int = 0,
     @SerialName("name") val name: String = "",
     @SerialName("language") val language: String? = null,
     @SerialName("stargazers_count") val stargazersCount: Int = 0,

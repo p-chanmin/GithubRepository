@@ -5,6 +5,7 @@ import com.dev.githubrepository.core.model.RepositoryInfo
 
 internal fun RepositoryResponse.toData(): RepositoryInfo =
     RepositoryInfo(
+        id = id,
         name = name,
         language = language,
         stargazersCount = stargazersCount,
