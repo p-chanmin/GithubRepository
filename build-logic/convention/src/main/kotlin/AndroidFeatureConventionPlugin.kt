@@ -1,3 +1,4 @@
+import com.dev.philo.androidExtension
 import com.dev.philo.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -10,6 +11,17 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("githubrepository.android.library")
                 apply("githubrepository.android.compose")
                 apply("githubrepository.android.hilt")
+            }
+
+            androidExtension.apply {
+                packaging {
+                    resources {
+                        excludes.add("META-INF/**")
+                    }
+                }
+                defaultConfig {
+                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                }
             }
 
             dependencies {

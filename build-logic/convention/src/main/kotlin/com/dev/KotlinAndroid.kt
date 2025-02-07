@@ -34,6 +34,12 @@ internal fun Project.configureKotlinAndroid() {
             }
         }
 
+        packaging {
+            resources {
+                excludes.add("META-INF/**")
+            }
+        }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
