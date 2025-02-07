@@ -3,6 +3,7 @@ package com.dev.githubrepository.core.data
 import androidx.annotation.VisibleForTesting
 import com.dev.githubrepository.core.data.api.GitHubApi
 import com.dev.githubrepository.core.data.api.model.RepositoryResponse
+import com.dev.githubrepository.core.data.api.model.SearchRepositoryResponse
 import com.dev.githubrepository.core.data.mapper.toData
 import com.dev.githubrepository.core.data_api.GitHubRepository
 import com.dev.githubrepository.core.model.RepositoryInfo
@@ -24,6 +25,9 @@ class GitHubRepositoryImpl @Inject constructor(
     var endPage = false
 
     @VisibleForTesting
+    var cacheTotalCount = 0
+
+    @VisibleForTesting
     var cacheKeyword = ""
 
     @VisibleForTesting
@@ -38,16 +42,21 @@ class GitHubRepositoryImpl @Inject constructor(
         } else {
             cacheClear()
         }
-        val response = gitHubApi.searchRepositories(
-            keyword = keyword,
-            page = page,
-            perPage = perPage,
-        )
-        emit(response)
+        if (!endPage) {
+            val response = gitHubApi.searchRepositories(
+                keyword = keyword,
+                page = page,
+                perPage = perPage,
+            )
+            emit(response)
+        } else {
+            emit(SearchRepositoryResponse(totalCount = cacheTotalCount))
+        }
     }.onEach { response ->
         cacheKeyword = keyword
-        endPage = response.incompleteResults
+        cacheTotalCount = response.totalCount
         cacheList.addAll(response.items)
+        endPage = response.totalCount <= cacheList.size
     }.map {
         cacheList.map {
             it.toData()
@@ -83,6 +92,7 @@ class GitHubRepositoryImpl @Inject constructor(
     override fun cacheClear() {
         page = 1
         endPage = false
+        cacheTotalCount = 0
         cacheKeyword = ""
         cacheList.clear()
     }
