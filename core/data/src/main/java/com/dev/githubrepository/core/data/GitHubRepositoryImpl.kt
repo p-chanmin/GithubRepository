@@ -19,11 +19,13 @@ class GitHubRepositoryImpl @Inject constructor(
 
     @VisibleForTesting
     var page = 1
+
     @VisibleForTesting
     var endPage = false
 
     @VisibleForTesting
     var cacheKeyword = ""
+
     @VisibleForTesting
     val cacheList = mutableListOf<RepositoryResponse>()
 

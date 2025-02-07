@@ -87,7 +87,6 @@ class RepositoryViewModel @Inject constructor(
                     showProgress = false
                 )
             }
-            println("${_repositoryUiState.value}")
         }.retry { e ->
             loadFlow.value = false
             _repositoryUiState.update {

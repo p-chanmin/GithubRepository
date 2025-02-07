@@ -58,7 +58,6 @@ class SearchViewModel @Inject constructor(
                     showProgress = false
                 )
             }
-            println("${_searchUiState.value.repositories}")
         }.retry { e ->
             loadFlow.value = false
             _searchUiState.update {
