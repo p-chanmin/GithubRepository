@@ -39,9 +39,8 @@ class SearchViewModel @Inject constructor(
 
     @OptIn(ExperimentalCoroutinesApi::class)
     private fun loadRepositories(): Flow<Unit> = loadFlow
+        .filter { it }
         .filter {
-            it
-        }.filter {
             _searchUiState.value.keyword.isNotEmpty().also {
                 if (!it) {
                     loadFlow.value = false
