@@ -1,5 +1,6 @@
 package com.dev.githubrepository.core.data
 
+import androidx.annotation.VisibleForTesting
 import com.dev.githubrepository.core.data.api.GitHubApi
 import com.dev.githubrepository.core.data.api.model.RepositoryResponse
 import com.dev.githubrepository.core.data.mapper.toData
@@ -16,11 +17,15 @@ class GitHubRepositoryImpl @Inject constructor(
     private val gitHubApi: GitHubApi,
 ) : GitHubRepository {
 
-    private var page = 1
-    private var endPage = false
+    @VisibleForTesting
+    var page = 1
+    @VisibleForTesting
+    var endPage = false
 
-    private var cacheKeyword = ""
-    private val cacheList = mutableListOf<RepositoryResponse>()
+    @VisibleForTesting
+    var cacheKeyword = ""
+    @VisibleForTesting
+    val cacheList = mutableListOf<RepositoryResponse>()
 
     override fun searchRepositories(
         keyword: String,
