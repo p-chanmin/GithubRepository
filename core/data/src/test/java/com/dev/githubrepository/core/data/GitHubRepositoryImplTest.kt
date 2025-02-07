@@ -60,6 +60,7 @@ internal class GitHubRepositoryImplTest : StringSpec() {
                 repository.endPage shouldBe false
                 repository.cacheList.size shouldBe expected.size
                 repository.cacheKeyword shouldBe keyword
+                repository.cacheTotalCount shouldBe 4
 
                 cancelAndConsumeRemainingEvents()
             }
@@ -127,6 +128,7 @@ internal class GitHubRepositoryImplTest : StringSpec() {
                 repository.endPage shouldBe true
                 repository.cacheList.size shouldBe expected.size
                 repository.cacheKeyword shouldBe keyword
+                repository.cacheTotalCount shouldBe 4
 
                 cancelAndConsumeRemainingEvents()
             }
