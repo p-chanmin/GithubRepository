@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_search_search_text_field_placeholder">레포지토리 이름을 입력하세요.</string>
+    <string name="feature_search_ic_search">search</string>
+    <string name="feature_search_ic_language">language</string>
+    <string name="feature_search_ic_stargazerscount">stargazersCount</string>
+</resources>

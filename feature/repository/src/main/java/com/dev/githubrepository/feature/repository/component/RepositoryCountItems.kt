@@ -10,10 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.githubrepository.core.designsystem.component.FormattedCountText
 import com.dev.githubrepository.core.designsystem.theme.GithubRepositoryTheme
+import com.dev.githubrepository.feature.repository.R
 
 @Composable
 internal fun RepositoryCountItems(
@@ -33,7 +35,7 @@ internal fun RepositoryCountItems(
         ) {
             Text(
                 modifier = Modifier,
-                text = "Star",
+                text = stringResource(R.string.feature_repository_star),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground,
@@ -52,7 +54,7 @@ internal fun RepositoryCountItems(
         ) {
             Text(
                 modifier = Modifier,
-                text = "Watchers",
+                text = stringResource(R.string.feature_repository_watchers),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground,
@@ -71,7 +73,7 @@ internal fun RepositoryCountItems(
         ) {
             Text(
                 modifier = Modifier,
-                text = "Forks",
+                text = stringResource(R.string.feature_repository_forks),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground,

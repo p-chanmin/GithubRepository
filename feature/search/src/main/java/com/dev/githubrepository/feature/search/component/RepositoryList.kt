@@ -26,6 +26,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.githubrepository.core.designsystem.component.DefaultAsyncImage
@@ -36,6 +37,7 @@ import com.dev.githubrepository.core.designsystem.theme.GithubRepositoryTheme
 import com.dev.githubrepository.core.designsystem.theme.Paddings
 import com.dev.githubrepository.core.designsystem.theme.Yellow
 import com.dev.githubrepository.core.model.RepositoryInfo
+import com.dev.githubrepository.feature.search.R
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.collectLatest
@@ -122,7 +124,7 @@ private fun RepositoryItem(
             Icon(
                 modifier = Modifier.size(16.dp),
                 imageVector = Icons.Filled.Star,
-                contentDescription = "stargazersCount",
+                contentDescription = stringResource(R.string.feature_search_ic_stargazerscount),
                 tint = Yellow
             )
             FormattedCountText(
@@ -137,7 +139,7 @@ private fun RepositoryItem(
                         .size(20.dp)
                         .padding(start = Paddings.medium),
                     imageVector = Icons.Filled.Circle,
-                    contentDescription = "language",
+                    contentDescription = stringResource(R.string.feature_search_ic_language),
                     tint = languageColors.getOrDefault(lang, Black)
                 )
                 Text(

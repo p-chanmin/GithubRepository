@@ -19,11 +19,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dev.githubrepository.core.designsystem.component.DefaultAsyncImage
 import com.dev.githubrepository.core.designsystem.theme.GithubRepositoryTheme
 import com.dev.githubrepository.core.designsystem.theme.Paddings
+import com.dev.githubrepository.feature.repository.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -79,7 +81,7 @@ internal fun UserBottomSheet(
             ) {
                 Text(
                     modifier = Modifier,
-                    text = "Followers",
+                    text = stringResource(R.string.feature_repository_followers),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
@@ -98,7 +100,7 @@ internal fun UserBottomSheet(
             ) {
                 Text(
                     modifier = Modifier,
-                    text = "Following",
+                    text = stringResource(R.string.feature_repository_following),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
@@ -117,7 +119,7 @@ internal fun UserBottomSheet(
             ) {
                 Text(
                     modifier = Modifier,
-                    text = "Language",
+                    text = stringResource(R.string.feature_repository_language),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
@@ -136,7 +138,7 @@ internal fun UserBottomSheet(
             ) {
                 Text(
                     modifier = Modifier,
-                    text = "Repositories",
+                    text = stringResource(R.string.feature_repository_repositories),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
@@ -155,7 +157,7 @@ internal fun UserBottomSheet(
             ) {
                 Text(
                     modifier = Modifier,
-                    text = "Bio",
+                    text = stringResource(R.string.feature_repository_bio),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                 )

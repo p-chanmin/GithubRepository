@@ -15,11 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import com.dev.githubrepository.core.designsystem.component.DefaultTextField
 import com.dev.githubrepository.core.designsystem.theme.GithubRepositoryTheme
 import com.dev.githubrepository.core.designsystem.theme.Paddings
+import com.dev.githubrepository.feature.search.R
 
 @Composable
 internal fun SearchTextField(
@@ -62,7 +64,7 @@ internal fun SearchTextField(
         ) {
             Icon(
                 imageVector = Icons.Filled.Search,
-                contentDescription = "search",
+                contentDescription = stringResource(R.string.feature_search_ic_search),
             )
         }
     }

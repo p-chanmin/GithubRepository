@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_repository_ic_refresh">refresh</string>
+    <string name="feature_repository_description">Description</string>
+    <string name="feature_repository_followers">Followers</string>
+    <string name="feature_repository_following">Following</string>
+    <string name="feature_repository_language">Language</string>
+    <string name="feature_repository_repositories">Repositories</string>
+    <string name="feature_repository_bio">Bio</string>
+    <string name="feature_repository_more">more</string>
+    <string name="feature_repository_star">Star</string>
+    <string name="feature_repository_watchers">Watchers</string>
+    <string name="feature_repository_forks">Forks</string>
+</resources>

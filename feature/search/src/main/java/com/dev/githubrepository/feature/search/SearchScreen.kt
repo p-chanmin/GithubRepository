@@ -15,6 +15,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -72,7 +73,7 @@ private fun SearchContent(
             value = searchUiState.keyword,
             onValueChange = onKeywordChange,
             onSearchClick = onSearchClick,
-            placeholderText = "레포지토리 이름을 입력하세요."
+            placeholderText = stringResource(R.string.feature_search_search_text_field_placeholder)
         )
         Box(
             modifier = Modifier.fillMaxSize(),

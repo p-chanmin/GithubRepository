@@ -28,6 +28,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -131,7 +132,7 @@ private fun RepositoryContent(
 
             Text(
                 modifier = Modifier.padding(top = Paddings.xlarge),
-                text = "Description",
+                text = stringResource(R.string.feature_repository_description),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground,
@@ -151,7 +152,7 @@ private fun RepositoryContent(
         ) {
             Icon(
                 imageVector = Icons.Filled.Refresh,
-                contentDescription = "refresh",
+                contentDescription = stringResource(R.string.feature_repository_ic_refresh),
             )
         }
 
