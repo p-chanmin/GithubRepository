@@ -13,9 +13,13 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -54,6 +58,7 @@ internal fun RepositoryScreen(
         repositoryUiState = repositoryUiState,
         paddingValues = paddingValues,
         updateBottomSheetState = viewModel::updateBottomSheetState,
+        refreshRepositoryDetail = viewModel::refreshRepositoryDetail,
     )
 }
 
@@ -63,6 +68,7 @@ private fun RepositoryContent(
     repositoryUiState: RepositoryUiState,
     paddingValues: PaddingValues,
     updateBottomSheetState: (Boolean) -> Unit,
+    refreshRepositoryDetail: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
     val sheetState = rememberModalBottomSheetState()
@@ -139,6 +145,16 @@ private fun RepositoryContent(
             )
         }
 
+        IconButton(
+            modifier = Modifier.align(Alignment.TopEnd),
+            onClick = { refreshRepositoryDetail() },
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Refresh,
+                contentDescription = "refresh",
+            )
+        }
+
         if (repositoryUiState.showBottomSheet) {
             UserBottomSheet(
                 sheetState = sheetState,
@@ -184,6 +200,7 @@ private fun RepositoryContentPreview() {
             ),
             paddingValues = PaddingValues(),
             updateBottomSheetState = {},
+            refreshRepositoryDetail = {}
         )
     }
 }

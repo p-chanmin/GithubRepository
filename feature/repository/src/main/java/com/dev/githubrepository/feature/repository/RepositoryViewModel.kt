@@ -23,6 +23,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
@@ -80,13 +81,22 @@ class RepositoryViewModel @Inject constructor(
                 )
             }
         }.map { state ->
-            loadFlow.value = true
+            loadFlow.value = false
             _repositoryUiState.update {
                 state.copy(
                     showProgress = false
                 )
             }
             println("${_repositoryUiState.value}")
+        }.retry { e ->
+            loadFlow.value = false
+            _repositoryUiState.update {
+                it.copy(
+                    showProgress = false
+                )
+            }
+            _errorFlow.emit(e)
+            true
         }
 
     fun refreshRepositoryDetail() {

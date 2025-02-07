@@ -21,16 +21,10 @@ internal fun MainScreen(
     val context = LocalContext.current
     val onShowErrorSnackBar: (throwable: Throwable?) -> Unit = { throwable ->
         coroutineScope.launch {
-
             val unknownErrorMessage =
                 context.getString(R.string.feature_main_error_message_unknown)
 
-            snackBarHostState.showSnackbar(
-                when (throwable) {
-                    is IllegalArgumentException -> throwable.message ?: unknownErrorMessage
-                    else -> unknownErrorMessage
-                }
-            )
+            snackBarHostState.showSnackbar(throwable?.message ?: unknownErrorMessage)
         }
     }
 

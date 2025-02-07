@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
@@ -59,6 +60,15 @@ class SearchViewModel @Inject constructor(
                 )
             }
             println("${_searchUiState.value.repositories}")
+        }.retry { e ->
+            loadFlow.value = false
+            _searchUiState.update {
+                it.copy(
+                    showProgress = false
+                )
+            }
+            _errorFlow.emit(e)
+            true
         }
 
     fun loadMoreRepositories(
