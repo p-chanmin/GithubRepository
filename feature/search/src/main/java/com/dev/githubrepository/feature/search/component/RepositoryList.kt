@@ -48,12 +48,13 @@ internal fun RepositoryList(
     listState: LazyListState = rememberLazyListState(),
     repositoryList: ImmutableList<RepositoryInfo>,
     onRepositoryClick: (String, String) -> Unit,
-    loadMoreRepositories: (Int, Int) -> Unit,
+    loadMoreRepositories: (Int) -> Unit,
 ) {
+
     LaunchedEffect(Unit) {
-        snapshotFlow { listState.firstVisibleItemIndex to listState.layoutInfo.visibleItemsInfo.size }
-            .collectLatest { (firstVisibleItemIndex, visibleItemCount) ->
-                loadMoreRepositories(firstVisibleItemIndex, visibleItemCount)
+        snapshotFlow { listState.firstVisibleItemIndex + listState.layoutInfo.visibleItemsInfo.size }
+            .collectLatest { currentItemIndex ->
+                loadMoreRepositories(currentItemIndex)
             }
     }
 
@@ -220,7 +221,7 @@ private fun RepositoryListPreview() {
                 ),
             ),
             onRepositoryClick = { _, _ -> },
-            loadMoreRepositories = { _, _ -> }
+            loadMoreRepositories = { }
         )
     }
 }

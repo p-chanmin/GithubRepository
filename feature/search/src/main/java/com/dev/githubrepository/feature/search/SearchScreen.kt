@@ -58,7 +58,7 @@ private fun SearchContent(
     navigateToRepository: (String, String) -> Unit,
     onKeywordChange: (String) -> Unit,
     onSearchClick: () -> Unit,
-    loadMoreRepositories: (Int, Int) -> Unit,
+    loadMoreRepositories: (Int) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -120,7 +120,7 @@ private fun SearchContentPreview() {
             navigateToRepository = { _, _ -> },
             onKeywordChange = {},
             onSearchClick = {},
-            loadMoreRepositories = { _, _ -> },
+            loadMoreRepositories = {},
         )
     }
 }

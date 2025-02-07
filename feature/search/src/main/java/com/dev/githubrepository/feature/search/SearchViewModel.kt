@@ -69,8 +69,7 @@ class SearchViewModel @Inject constructor(
             true
         }
 
-    fun loadMoreRepositories(firstVisibleItemIndex: Int, visibleItemCount: Int) {
-        val currentItemIndex = firstVisibleItemIndex + visibleItemCount
+    fun loadMoreRepositories(currentItemIndex: Int) {
         if (!loadFlow.value && currentItemIndex >= _searchUiState.value.repositories.size - 10) {
             loadFlow.value = true
         }
